@@ -30,13 +30,13 @@ export const ArticleStyle = styled.article`
   align-items: center;
   justify-content: space-between;
 
-  gap: 8rem;
+  gap: 6rem;
   nav {
     display: flex;
     align-items: center;
     justify-content: space-between;
 
-    gap: 3.4rem
+    gap: 2.5rem;
   }
 `;
 
