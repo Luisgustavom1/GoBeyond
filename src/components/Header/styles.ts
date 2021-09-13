@@ -5,16 +5,17 @@ export const Container = styled.header`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  
-  padding: 2rem 30rem;
-`;
+  gap: 1rem;
 
-export const AsideStyle = styled.aside`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  padding: 2rem 25rem;
 
-  gap: 2rem;
+  nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 2.5rem;
+  }
 
   div {
     display: flex;
@@ -23,20 +24,13 @@ export const AsideStyle = styled.aside`
 
     gap: 1rem;
   }
-`;
 
-export const ArticleStyle = styled.article`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  @media(max-width: 1100px) {
+    padding: 2rem 15rem;
+  }
 
-  gap: 6rem;
-  nav {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    gap: 2.5rem;
+  @media(max-width: 900px) {
+    padding: 2rem 5rem;
   }
 `;
 

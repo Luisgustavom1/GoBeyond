@@ -1,28 +1,29 @@
 import React from 'react';
 
-import { Container, MenuDropdown } from './styles';
+import { Container, ContainerDropdown, MenuDropdown } from './styles';
 
 interface INavItem {
   children: string
-  items: {
-    item1: string, 
-    item2: string, 
-    item3: string, 
-    item4: string, 
-    item5: string, 
-  }
+  items: string[]
 }
 
-const NavItem = ({ children }: INavItem) => {
+const NavItem = ({ children, items }: INavItem) => {
+
   return(
-    <>
-      <Container>
-        {children} <i className="fas fa-caret-down" />
-      </Container>
+    <Container>
+      <ContainerDropdown>
+        {children} 
+        <i className="fas fa-caret-down"
+        />
+      </ContainerDropdown>
       <MenuDropdown>
-        
+        <ul className='dropdown'>
+          {items.map((item, id) => {
+            return <li key={id}>{item}</li>
+          })}
+        </ul>
       </MenuDropdown>
-    </>
+    </Container>
   )
 }
 
