@@ -46,6 +46,13 @@ const BannerCarousel: React.FC = () => {
     setShowBanner(showBannerUpdate)
   }
 
+  // useEffect(() => {
+  //   var interval = setInterval(() => {
+  //     nextBanner()
+  //   }, 2000);
+  //   return () => clearInterval(interval)
+  // }, [])
+
   return(
     <Container>
         {showBanner[0] && <Image 

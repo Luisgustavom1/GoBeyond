@@ -20,4 +20,8 @@ export const GlobalStyle = createGlobalStyle`
   button, input, text-area {
     border: none;
   }
+
+  body {
+    overflow-x: hidden;
+  }
 `;
