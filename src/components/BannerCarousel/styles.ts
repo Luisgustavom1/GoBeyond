@@ -9,8 +9,15 @@ export const Container = styled.section`
 
   position: relative;
 
+  img {
+    width: 100vw;
+    height: 43rem;
+
+    transform-origin: 10000 ease-in;
+  }
+
   article {
-    position: fixed;
+    position: absolute;
 
     display: flex;
     align-items: center;
