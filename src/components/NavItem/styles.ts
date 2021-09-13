@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 export const Container = styled.section`
-
   &:hover {
     .dropdown {
       opacity: 1;
@@ -22,34 +21,36 @@ export const ContainerDropdown = styled.p`
 `;
 
 export const MenuDropdown = styled.div`
-color: white;
-font-size: 1.2rem;
-font-weight: 600;
+  color: white;
+  font-size: 1.2rem;
+  font-weight: 600;
 
-position: relative;
+  position: relative;
 
-ul {
-  padding: 1rem 1.5rem .5rem 1.5rem;
-  margin-top: 1rem;
+  ul {
+    padding: 1rem 1.5rem .5rem 1.5rem;
+    margin-top: 1rem;
 
-  background-color: gray;
+    background-color: gray;
 
-  position: absolute;
+    z-index: 999;
+    position: absolute;
 
-  right: 50%;
+    top: 1rem;
+    right: 50%;
 
-  opacity: .25;
-  transition: all 150ms ease-in;
-  transform: translateX(50%) rotateX(-90deg);
-  transform-origin: top center;
-}
-
-li {
-  margin-bottom: .8rem;
-  list-style: none;
-
-  &:hover {
-    background-color: rgba(128, 128, 185, .8);
+    opacity: .25;
+    transition: all 150ms ease-in;
+    transform: translateX(50%) rotateX(-90deg);
+    transform-origin: top center;
   }
-}
+
+  li {
+    margin-bottom: .8rem;
+    list-style: none;
+
+    &:hover {
+      background-color: rgba(128, 128, 185, .8);
+    }
+  }
 `;
