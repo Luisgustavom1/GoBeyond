@@ -5,7 +5,7 @@ interface IButton {
   height: number
 }
 
-export const Container = styled.button<IButton>`
+export const ButtonStyle = styled.button<IButton>`
   background: #E9BF33;
   color: white;
 
