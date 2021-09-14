@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react';
 
 import Image from 'next/image';
-import { Container, Carousel } from './styles';
+import { Container } from './styles';
 
 import banner1 from '../../assets/imgs/banner1.svg';
 import banner2 from '../../assets/imgs/banner2.jpg';
 import banner3 from '../../assets/imgs/banner3.jpg';
 import banner4 from '../../assets/imgs/banner4.jpg';
+import ContainerCarousel from '../CarouselContainer';
 
 const BannerCarousel: React.FC = () => {
 
@@ -35,38 +36,45 @@ const BannerCarousel: React.FC = () => {
   useEffect(() => {
     var interval = setInterval(() => {
       nextBanner()
-    }, 2000);
+    }, 3000);
     return () => clearInterval(interval)
   }, [showBanner])
 
   return(
     <Container>
-      <Carousel bannerSlide={showBanner}>
-        <div>
-          <Image
-              src={banner1}
-              alt='banner1'
+      <div>
+        <ContainerCarousel 
+          bannerSlide={showBanner}
+          rollX={100}  
+          widthSlides={'100vw'}
+          height={'43rem'}
+        >
+          <div>
+            <Image
+                src={banner1}
+                alt='banner1'
+              />
+          </div>
+          <div>
+            <Image
+              src={banner2}
+              alt='banner2'
             />
-        </div>
-        <div>
-          <Image
-            src={banner2}
-            alt='banner2'
-          />
-        </div>
-        <div>
-          <Image
-            src={banner3}
-            alt='banner3'
-          />
-        </div>
-        <div>
-          <Image
-            src={banner4}
-            alt='banner4'
-          />
-        </div>
-      </Carousel>
+          </div>
+          <div>
+            <Image
+              src={banner3}
+              alt='banner3'
+            />
+          </div>
+          <div>
+            <Image
+              src={banner4}
+              alt='banner4'
+            />
+          </div>
+        </ContainerCarousel>
+      </div>
       <article>
         <i 
           className="fas fa-chevron-left" 
