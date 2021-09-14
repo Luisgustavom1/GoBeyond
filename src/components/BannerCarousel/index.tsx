@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
 import Image from 'next/image';
-import { Container } from './styles';
+import { Container, Carousel } from './styles';
 
 import banner1 from '../../assets/imgs/banner1.svg';
 import banner2 from '../../assets/imgs/banner2.jpg';
@@ -10,67 +10,63 @@ import banner4 from '../../assets/imgs/banner4.jpg';
 
 const BannerCarousel: React.FC = () => {
 
-  const [showBanner, setShowBanner] = useState<boolean[]>([true, false, false, false]);
+  const [showBanner, setShowBanner] = useState<number>(0);
   
-  const currentBanner = showBanner.indexOf(true)
-
   function nextBanner() {
-    const showBannerUpdate = [...showBanner]
 
-    if(currentBanner === showBanner.length - 1) {
-      showBannerUpdate[0] = true;
-      showBannerUpdate[currentBanner] = false
-      setShowBanner(showBannerUpdate)
-      return
+    if(showBanner === 3) {
+      return setShowBanner(0);
     }
 
-    showBannerUpdate[currentBanner] = false;
-    showBannerUpdate[currentBanner + 1] = true;
-
-    setShowBanner(showBannerUpdate)
+    const nextBanner = showBanner + 1;
+    setShowBanner(nextBanner);    
+    
   }
 
   function prevBanner() {
-    const showBannerUpdate = [...showBanner]
-
-    if(currentBanner === 0) {
-      showBannerUpdate[0] = false;
-      showBannerUpdate[showBanner.length - 1] = true
-      setShowBanner(showBannerUpdate)
-      return
+    if(showBanner === 0) {
+      return setShowBanner(3);
     }
 
-    showBannerUpdate[currentBanner] = false;
-    showBannerUpdate[currentBanner - 1] = true;
-
-    setShowBanner(showBannerUpdate)
+    const nextBanner = showBanner - 1;
+    setShowBanner(nextBanner); 
   }
 
-  // useEffect(() => {
-  //   var interval = setInterval(() => {
-  //     nextBanner()
-  //   }, 2000);
-  //   return () => clearInterval(interval)
-  // }, [])
+  useEffect(() => {
+    var interval = setInterval(() => {
+      nextBanner()
+    }, 2000);
+    return () => clearInterval(interval)
+  }, [showBanner])
 
   return(
     <Container>
-        {showBanner[0] && <Image 
-          src={banner1}
-          alt='banner1'
-        />}
-        {showBanner[1] && <Image 
-          src={banner2}
-          alt='banner2'
-        />}
-        {showBanner[2] && <Image 
-          src={banner3}
-          alt='banner3'
-        />}
-        {showBanner[3] && <Image 
-          src={banner4}
-          alt='banner4'
-        />}
+      <Carousel bannerSlide={showBanner}>
+        <div>
+          <Image
+              src={banner1}
+              alt='banner1'
+            />
+        </div>
+        <div>
+          <Image
+            src={banner2}
+            alt='banner2'
+          />
+        </div>
+        <div>
+          <Image
+            src={banner3}
+            alt='banner3'
+          />
+        </div>
+        <div>
+          <Image
+            src={banner4}
+            alt='banner4'
+          />
+        </div>
+      </Carousel>
       <article>
         <i 
           className="fas fa-chevron-left" 

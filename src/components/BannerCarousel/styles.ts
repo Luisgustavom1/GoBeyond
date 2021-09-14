@@ -1,5 +1,9 @@
 import styled from 'styled-components';
 
+interface ICarouselProps {
+  bannerSlide: number
+}
+
 export const Container = styled.section`
   max-width: 100vw;
   height: 43rem;
@@ -8,13 +12,6 @@ export const Container = styled.section`
   place-items: center;
 
   position: relative;
-
-  img {
-    width: 100vw;
-    height: 43rem;
-
-    transform-origin: 10000 ease-in;
-  }
 
   article {
     position: absolute;
@@ -53,4 +50,26 @@ export const Container = styled.section`
     }
   }
 
+`;
+
+export const Carousel = styled.div<ICarouselProps>`
+  display: flex;
+  width: 100vw;
+  height: 43rem;
+
+  transform: ${({ bannerSlide }) => `translateX(${bannerSlide * -100}vw)`};
+
+  div {
+    flex: none;
+
+    width: 100vw;
+    height: 100%;
+  }
+
+  img {
+    object-fit: cover;
+
+    width: 100%;
+    height: 100%;
+  }
 `;
