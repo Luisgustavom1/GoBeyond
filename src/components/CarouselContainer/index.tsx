@@ -6,15 +6,17 @@ interface IContainerCarousel {
   children: ReactNode,
   bannerSlide: number,
   rollX: number,
-  widthSlidesVW: number
+  widthSlides: string,
+  height: string
 }
 
-const ContainerCarousel = ({ children, bannerSlide, widthSlidesVW, rollX }: IContainerCarousel) => {
+const ContainerCarousel = ({ children, bannerSlide, widthSlides, rollX, height }: IContainerCarousel) => {
   return(
     <Container 
       bannerSlide={bannerSlide}
       rollX={rollX}  
-      widthSlidesVW={widthSlidesVW}
+      widthSlides={widthSlides}
+      height={height}
     >
       {children}
     </Container>

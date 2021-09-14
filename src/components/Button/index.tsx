@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Container } from './styles';
+import { ButtonStyle } from './styles';
 
 interface IButton {
   children: any
@@ -10,12 +10,12 @@ interface IButton {
 
 const Button = ({ children, height, width }: IButton) => {
   return(
-    <Container
+    <ButtonStyle
       width={width}
       height={height}
     >
       {children}
-    </Container>
+    </ButtonStyle>
   );
 }
 

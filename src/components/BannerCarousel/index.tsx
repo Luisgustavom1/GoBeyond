@@ -46,7 +46,8 @@ const BannerCarousel: React.FC = () => {
         <ContainerCarousel 
           bannerSlide={showBanner}
           rollX={100}  
-          widthSlidesVW={100}
+          widthSlides={'100vw'}
+          height={'43rem'}
         >
           <div>
             <Image

@@ -3,13 +3,14 @@ import styled from 'styled-components';
 interface ICarouselProps {
   bannerSlide: number,
   rollX: number,
-  widthSlidesVW: number
+  widthSlides: string,
+  height: string
 }
 
 export const Container = styled.div<ICarouselProps>`
   display: flex;
   width: 100%;
-  height: 43rem;
+  height: ${({ height }) => height};
 
   transform: ${({ bannerSlide, rollX }) => `translateX(${bannerSlide * - rollX}vw)`};
 
@@ -18,7 +19,7 @@ export const Container = styled.div<ICarouselProps>`
   div {
     flex: none;
 
-    width: ${({ widthSlidesVW }) => `${widthSlidesVW}vw`};
+    width: ${({ widthSlides}) => `${widthSlides}`};
     height: 100%;
   }
 
